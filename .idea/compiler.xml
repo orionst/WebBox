@@ -12,10 +12,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Common" target="1.5" />
-      <module name="WebBox" target="1.5" />
+      <module name="Common" target="1.8" />
+      <module name="WebBox" target="1.8" />
       <module name="WebBoxClient" target="1.8" />
-      <module name="WebBoxServer" target="1.5" />
+      <module name="WebBoxServer" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

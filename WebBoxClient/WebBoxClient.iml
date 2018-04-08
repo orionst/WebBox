@@ -10,5 +10,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="Maven: org.ini4j:ini4j:0.5.4" level="project" />
+    <orderEntry type="module" module-name="Common" />
   </component>
 </module>
