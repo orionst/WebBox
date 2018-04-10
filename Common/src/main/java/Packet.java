@@ -5,16 +5,18 @@ import java.util.Map;
 
 public class Packet implements Serializable {
 
-    private ActionCommands action;
-    private String userName;
-    private String password;
-    private Map<String, File> data;
+    private ActionCommands action;  //тип управляющей команды
+    private String userName;        //логин пользователя
+    private String password;        //пароль пользователя
+    private Map<String, File> data; //массив пар Название файла(ключ) - Объект файла(значение)
+    private boolean result;         //результат отработки команды (при необходимости)
 
-    private Packet(ActionCommands action, String userName, String password, File file) {
+    private Packet(ActionCommands action, String userName, String password, Map<String, File> data, boolean result) {
         this.action = action;
         this.userName = userName;
         this.password = password;
         this.data = data;
+        this.result = result;
     }
 
     public ActionCommands getAction() {
@@ -29,6 +31,10 @@ public class Packet implements Serializable {
         return password;
     }
 
+    public boolean isOk() {
+        return result;
+    }
+
     public Map<String, File> getData() {
         return data;
     }
@@ -39,7 +45,7 @@ public class Packet implements Serializable {
         output.append("Packet{" +
                 "action=" + action +
                 ", userName='" + userName + '\'' +
-                ", password='" + password + " {" );
+                ", password='" + password + "' {" );
         data.forEach((key, value) -> {
             output.append(key+", ");
         });
@@ -51,19 +57,14 @@ public class Packet implements Serializable {
         private ActionCommands action;
         private String userName;
         private String password;
-        private File file;
         private Map<String, File> data;
+        private boolean result;
 
         public PacketBuilder() {
-            this.file = null;
             this.data = new HashMap<String, File>();
         }
         public PacketBuilder setActionCommand(ActionCommands action) {
             this.action = action;
-            return this;
-        }
-        public PacketBuilder setFile(File file) {
-            this.file = file;
             return this;
         }
         public PacketBuilder setLogin(String userName) {
@@ -72,6 +73,10 @@ public class Packet implements Serializable {
         }
         public PacketBuilder setPassword(String password) {
             this.password = password;
+            return this;
+        }
+        public PacketBuilder setResult(boolean result) {
+            this.result = result;
             return this;
         }
         public PacketBuilder addFile(File file) {
@@ -83,7 +88,7 @@ public class Packet implements Serializable {
             return this;
         }
         public Packet createPacket(){
-            return new Packet(action, userName, password, file);
+            return new Packet(action, userName, password, data, result);
         }
     }
 

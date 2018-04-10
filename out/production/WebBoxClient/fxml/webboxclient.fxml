@@ -1,31 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="center" prefHeight="400.0" prefWidth="400.0" stylesheets="@/fxml/boxstyle.css" xmlns="http://javafx.com/javafx/8.0.92" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+<VBox alignment="center" prefHeight="400.0" prefWidth="400.0" stylesheets="@/fxml/boxstyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
          <children>
             <HBox prefHeight="423.0" prefWidth="400.0">
                <children>
-            <TreeView prefHeight="312.0" prefWidth="429.0" />
+            <ListView fx:id="filesView" prefHeight="312.0" prefWidth="370.0">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin></ListView>
                   <VBox prefHeight="312.0" prefWidth="230.0">
                      <children>
-                        <Button fx:id="sendButton" mnemonicParsing="false" onAction="#sendFileButtonAction" text="Загрузить файл" />
-                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteFileButtonAction" prefHeight="25.0" prefWidth="111.0" text="Удалить файл" />
-                        <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#openSettingsWindowButtonAction" prefHeight="25.0" prefWidth="127.0" text="Настройки" />
+                  <Button fx:id="refreshFileListButton" mnemonicParsing="false" onAction="#refreshFileListButtonAction" text="Обновить список">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Button>
+                        <Button fx:id="sendButton" mnemonicParsing="false" onAction="#sendFileButtonAction" prefWidth="111.0" text="Загрузить файл">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="downloadFile" mnemonicParsing="false" onAction="#downloadFileAction" prefWidth="111.0" text="Скачать файл">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Button>
+                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteFileButtonAction" prefWidth="111.0" text="Удалить файл">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin></Button>
+                        <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#openSettingsWindowButtonAction" prefWidth="111.0" text="Настройки">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="20.0" />
+                     </VBox.margin></Button>
                      </children>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
                   </VBox>
                </children>
             </HBox>
-      <Pane prefHeight="200.0" prefWidth="200.0">
+      <Pane prefHeight="92.0" prefWidth="400.0">
          <children>
-            <Label layoutX="4.0" text="Server:" />
-            <Label layoutX="4.0" layoutY="17.0" text="Label" />
+            <TextField fx:id="loginField" layoutY="3.0" prefHeight="25.0" prefWidth="92.0" promptText="Логин" />
+            <PasswordField fx:id="passField" layoutX="97.0" layoutY="3.0" prefHeight="25.0" prefWidth="92.0" promptText="Пароль" />
+            <Button fx:id="buttonRegister" layoutX="200.0" layoutY="3.0" mnemonicParsing="false" onAction="#signUpAction" text="Регистрация" />
+            <Button fx:id="buttonSignIn" layoutX="292.0" layoutY="3.0" mnemonicParsing="false" onAction="#signInAction" prefHeight="25.0" prefWidth="84.0" text="Войти" />
          </children>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
       </Pane>
          </children>
       </VBox>

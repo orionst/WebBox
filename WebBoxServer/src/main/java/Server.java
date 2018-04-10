@@ -1,12 +1,16 @@
+import java.io.File;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.SQLException;
 
 public class Server {
+    final String ROOT_FIR_PATH = "/users";
     DBConnector dbService;
+    FileCommander fileCommander;
 
     public Server() {
+        fileCommander = new FileCommander(ROOT_FIR_PATH);
         try {
             ServerSocket serverSocket = new ServerSocket(8189);
             dbService = new DBConnector();
@@ -20,6 +24,7 @@ public class Server {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
             System.out.println("Не удалось запустить сервис авторизации");
         } finally {
             dbService.disconnect();
