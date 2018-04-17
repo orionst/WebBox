@@ -35,7 +35,7 @@ public class FileCommander {
             throw new IOException("no_writable_dir");
 
         Path path = Paths.get(dir.getPath() + File.separator + file.getName());
-        Files.copy(new FileInputStream(file), path, StandardCopyOption.REPLACE_EXISTING);
+        Files.copy(file.toPath(), path, StandardCopyOption.REPLACE_EXISTING);
     }
 
     public void deleteUsersFile(int userId, String file_name) throws IOException {

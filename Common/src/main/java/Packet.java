@@ -1,5 +1,4 @@
-import java.io.File;
-import java.io.Serializable;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,6 +51,21 @@ public class Packet implements Serializable {
         output.append("}}");
         return output.toString();
     }
+
+    public void sendPacket(ObjectOutputStream stream) {
+        try {
+            stream.writeObject(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                stream.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     public static class PacketBuilder {
         private ActionCommands action;
