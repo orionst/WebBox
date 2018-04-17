@@ -3,19 +3,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import javafx.util.Callback;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.URL;
 import java.nio.file.Files;
@@ -25,21 +22,23 @@ import java.nio.file.StandardCopyOption;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-public class MainController implements Initializable {
+public class MainController2 implements Initializable {
 
+    @FXML TextField serverNameField;
+    @FXML TextField serverPortField;
     @FXML Button refreshFileListButton;
     @FXML Button sendButton;
     @FXML Button downloadFile;
     @FXML Button deleteButton;
-    @FXML Button settingsButton;
 
     @FXML TextField loginField;
     @FXML PasswordField passField;
+    @FXML CheckBox autoLogon;
     @FXML Button buttonRegister;
     @FXML Button buttonSignIn;
+    @FXML Button saveSettingsButton;
 
     @FXML ListView<String> filesView;
-    @FXML SettingsWindowController settingsWindowController;
 
     private Settings settings;
 
@@ -47,11 +46,14 @@ public class MainController implements Initializable {
     private ObjectOutputStream outStream;
     private ObjectInputStream inStream;
 
+    boolean isAuthorized;
+
     private PacketsController packetCntrlr;
 
     private ObservableList<String> fileList;
 
     public void setAuthorized(boolean authorized) {
+        isAuthorized = authorized;
         loginField.setDisable(authorized);
         passField.setDisable(authorized);
         buttonRegister.setDisable(authorized);
@@ -60,6 +62,24 @@ public class MainController implements Initializable {
         sendButton.setDisable(!authorized);
         downloadFile.setDisable(!authorized);
         deleteButton.setDisable(!authorized);
+        serverNameField.setDisable(authorized);
+        serverPortField.setDisable(authorized);
+        saveSettingsButton.setDisable(authorized);
+        autoLogon.setDisable(authorized);
+
+        if (authorized) {
+            buttonSignIn.setText("Отключиться");
+            buttonSignIn.setDisable(false);
+        } else {
+            buttonSignIn.setText("Авторизация");
+        }
+    }
+
+    private void fillGUIfields(Settings settings) {
+        serverNameField.setText(settings.getServerName());
+        serverPortField.setText(Short.toString(settings.getServerPort()));
+        loginField.setText(settings.getUserName());
+        passField.setText(settings.getUserPassword());
     }
 
     @FXML
@@ -101,31 +121,6 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private void openSettingsWindowButtonAction(ActionEvent actionEvent){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/settings_window.fxml"));
-            Parent load = (Parent) loader.load();
-            SettingsWindowController settingsWindowController = loader.getController();
-            settingsWindowController.init(settings, outStream, inStream);
-            Stage stage = new Stage();
-            stage.setTitle("WebBox Settings");
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
-            Scene scene = new Scene(load);
-            stage.setScene(scene);
-            stage.showAndWait();
-
-            if (settingsWindowController.needReconnect) {
-                //socket.close();
-                //connect(settingsWindowController.getSignInPacket());
-            }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
     private void signUpAction(ActionEvent actionEvent) {
         Packet packet = new Packet.PacketBuilder().setActionCommand(ActionCommands.NEW_USER).setLogin(loginField.getText()).setPassword(passField.getText()).createPacket();
         packet.sendPacket(outStream);
@@ -133,8 +128,31 @@ public class MainController implements Initializable {
 
     @FXML
     private void signInAction(ActionEvent actionEvent) {
-        Packet packet = new Packet.PacketBuilder().setActionCommand(ActionCommands.AUTH_USER).setLogin(loginField.getText()).setPassword(passField.getText()).createPacket();
+        Packet packet = null;
+        if (!isAuthorized)
+            packet = new Packet.PacketBuilder().setActionCommand(ActionCommands.AUTH_USER).setLogin(loginField.getText()).setPassword(passField.getText()).createPacket();
+        else
+            packet = new Packet.PacketBuilder().setActionCommand(ActionCommands.AUTH_OFF_USER).setLogin(loginField.getText()).createPacket();
         packet.sendPacket(outStream);
+    }
+
+    @FXML
+    public void saveSettingsAction(ActionEvent actionEvent) {
+        //записать изменения
+        settings.setServerName(serverNameField.getText());
+        settings.setServerPort(Short.parseShort(serverPortField.getText()));
+        settings.setUserName(loginField.getText());
+        if (autoLogon.isSelected()) {
+            settings.setUserPassword(passField.getText());
+        } else {
+            settings.setUserPassword("");
+        }
+        settings.setAutoLogon(autoLogon.isSelected());
+        try {
+            settings.saveSettings();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private Settings getSettings() {
@@ -144,6 +162,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         settings = getSettings();
+        fillGUIfields(settings);
         setAuthorized(false);
         fileList = FXCollections.observableArrayList();
         filesView.setItems(fileList);
@@ -225,7 +244,6 @@ public class MainController implements Initializable {
                     //сервер авторизировал, ждем пакеты с данными
                     while(true){
                         Packet packet = (Packet) inStream.readObject();
-                        System.out.println(packet.toString());
                         parsePacket(packet);
                     }
                 } catch (IOException e) {
@@ -251,6 +269,13 @@ public class MainController implements Initializable {
     private void parsePacket(Packet packet) {
         Map<String, File> mapFiles = packet.getData();
         switch (packet.getAction()) {
+            case ANSW:
+                if (packet.isOk()) {
+                    setAuthorized(false);
+                } else {
+                    showAlert("Ошибка отключения от сервера.");
+                }
+                break;
             case SEND_FILE:
                 saveFileFromServer(mapFiles);
                 break;

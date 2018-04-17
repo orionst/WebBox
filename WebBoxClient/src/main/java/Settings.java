@@ -40,10 +40,6 @@ public class Settings {
                 autoLogon = false;
             }
         } catch (Exception e) { }
-        System.out.println(serverName);
-        System.out.println(serverPort);
-        System.out.println(userName);
-        System.out.println(userPassword);
     }
 
     public void saveSettings() throws IOException{
