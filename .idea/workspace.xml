@@ -2,21 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ee9b493-6403-45b9-9a15-aca32ff47394" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/WebBoxClient/src/main/java/MainController2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebBoxClient/src/main/resources/fxml/webboxclient2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/main/java/ActionCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/main/java/ActionCommands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebBoxClient/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBoxClient/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBoxClient/src/main/java/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBoxClient/src/main/java/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebBoxClient/src/main/java/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBoxClient/src/main/java/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebBoxClient/src/main/java/MainController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebBoxClient/src/main/java/MainController2.java" beforeDir="false" afterPath="$PROJECT_DIR$/WebBoxClient/src/main/java/MainController2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebBoxClient/src/main/java/SettingsWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebBoxClient/src/main/java/SettingsWindowController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebBoxClient/src/main/resources/fxml/boxstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebBoxClient/src/main/resources/fxml/boxstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebBoxClient/src/main/resources/fxml/settings_window.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebBoxClient/src/main/resources/fxml/webboxclient.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebBoxClient/src/main/resources/fxml/webboxclient2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/WebBoxClient/src/main/resources/fxml/webboxclient2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebBoxClient/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/MainController$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebBoxClient/MainController$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebBoxClient/MainController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/MainController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebBoxClient/MainController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/MainController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebBoxClient/MainController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebBoxClient/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebBoxClient/Settings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/MainController$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/MainController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/MainController$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/MainController$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/MainController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/MainController2$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/MainController2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebBoxClient/MainController2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/MainController2$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebBoxClient/MainController2$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/MainController2$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebBoxClient/MainController2$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/MainController2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebBoxClient/MainController2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/SettingsWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/SettingsWindowController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/fxml/boxstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebBoxClient/fxml/boxstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/fxml/settings_window.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/fxml/webboxclient.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebBoxClient/fxml/webboxclient2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebBoxClient/fxml/webboxclient2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webbox.ini" beforeDir="false" afterPath="$PROJECT_DIR$/webbox.ini" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,28 +48,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainController2.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WebBoxClient/src/main/java/MainController2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="113" column="9" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
-              <folding>
-                <element signature="method#fillGUIfields#0;class#MainController2#0" />
-                <element signature="method#refreshFileListButtonAction#0;class#MainController2#0" />
-                <element signature="method#sendFileButtonAction#0;class#MainController2#0" />
-                <element signature="method#downloadFileAction#0;class#MainController2#0" />
-                <element signature="method#deleteFileButtonAction#0;class#MainController2#0" />
-                <element signature="method#signUpAction#0;class#MainController2#0" />
-                <element signature="method#signInAction#0;class#MainController2#0" />
-                <element signature="method#saveSettingsAction#0;class#MainController2#0" />
-                <element signature="method#initialize#0;class#MainController2#0" />
-                <element signature="method#showAlert#0;class#MainController2#0" />
-                <element signature="method#saveFileFromServer#0;class#MainController2#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ClientHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebBoxServer/src/main/java/ClientHandler.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -66,6 +56,38 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainController2.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebBoxClient/src/main/java/MainController2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="533">
+              <caret line="194" column="37" selection-start-line="194" selection-start-column="37" selection-end-line="194" selection-end-column="37" />
+              <folding>
+                <element signature="method#setAuthorized#0;class#MainController2#0" />
+                <element signature="method#fillGUIfields#0;class#MainController2#0" />
+                <element signature="method#refreshFileListButtonAction#0;class#MainController2#0" />
+                <element signature="method#sendFileButtonAction#0;class#MainController2#0" />
+                <element signature="method#downloadFileAction#0;class#MainController2#0" />
+                <element signature="method#deleteFileButtonAction#0;class#MainController2#0" />
+                <element signature="method#signUpAction#0;class#MainController2#0" />
+                <element signature="method#saveSettingsAction#0;class#MainController2#0" />
+                <element signature="method#showAlert#0;class#MainController2#0" />
+                <element signature="method#saveFileFromServer#0;class#MainController2#0" />
+                <element signature="method#connect#0;class#MainController2#0" />
+                <element signature="method#parsePacket#0;class#MainController2#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PacketsController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Common/src/main/java/PacketsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
             </state>
           </provider>
         </entry>
@@ -97,7 +119,6 @@
         <option value="$PROJECT_DIR$/WebBoxClient/pom.xml" />
         <option value="$PROJECT_DIR$/WebBoxClient/src/main/java/SettingsController.java" />
         <option value="$PROJECT_DIR$/WebBoxClient/src/main/java/ClientController.java" />
-        <option value="$PROJECT_DIR$/WebBoxClient/src/main/resources/fxml/boxstyle.css" />
         <option value="$PROJECT_DIR$/WebBoxClient/src/main/java/SettingsWindow.java" />
         <option value="$PROJECT_DIR$/WebBoxClient/src/main/resources/fxml/settings_window.fxml" />
         <option value="$PROJECT_DIR$/Common/src/main/java/PacketsFabrika.java" />
@@ -124,10 +145,11 @@
         <option value="$PROJECT_DIR$/Common/src/main/java/PacketsController.java" />
         <option value="$PROJECT_DIR$/WebBoxClient/src/main/java/Settings.java" />
         <option value="$PROJECT_DIR$/WebBoxClient/src/main/java/MainController.java" />
-        <option value="$PROJECT_DIR$/WebBoxClient/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/WebBoxClient/src/main/resources/fxml/webboxclient2.fxml" />
         <option value="$PROJECT_DIR$/Common/src/main/java/ActionCommands.java" />
         <option value="$PROJECT_DIR$/WebBoxServer/src/main/java/ClientHandler.java" />
+        <option value="$PROJECT_DIR$/WebBoxClient/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/WebBoxClient/src/main/resources/fxml/webboxclient2.fxml" />
+        <option value="$PROJECT_DIR$/WebBoxClient/src/main/resources/fxml/boxstyle.css" />
         <option value="$PROJECT_DIR$/WebBoxClient/src/main/java/MainController2.java" />
       </list>
     </option>
@@ -163,7 +185,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -174,26 +196,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="WebBox" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Common" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="WebBox" type="58d84e3e:PackageViewProjectNode" />
-              <item name="WebBoxClient" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="WebBox" type="58d84e3e:PackageViewProjectNode" />
-              <item name="WebBoxServer" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -300,6 +302,26 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="WebBox" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Common" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="WebBox" type="58d84e3e:PackageViewProjectNode" />
+              <item name="WebBoxClient" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="WebBox" type="58d84e3e:PackageViewProjectNode" />
+              <item name="WebBoxServer" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
     </panes>
   </component>
@@ -317,6 +339,10 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Java Projects\WebBox\WebBoxClient\src\main\resources\fxml" />
+      <recent name="D:\Java Projects\WebBox\WebBoxClient\src\main\java" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -330,7 +356,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.Server">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -436,11 +462,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="9" weight="0.32900432" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.32900432" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
@@ -451,7 +477,7 @@
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32900432" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6017316" visible="true" weight="0.17963752" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6017316" visible="true" weight="0.18869936" />
       <window_info id="Structure" order="1" sideWeight="0.3982684" side_tool="true" weight="0.18443497" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -464,7 +490,6 @@
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32900432" />
-      <window_info anchor="bottom" id="Messages" order="0" weight="0.32900432" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -491,7 +516,7 @@
           <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="25" />
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -515,29 +540,9 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WebBoxClient/src/main/java/MainController2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
-          <caret line="113" column="9" lean-forward="true" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
-          <folding>
-            <element signature="method#fillGUIfields#0;class#MainController2#0" />
-            <element signature="method#refreshFileListButtonAction#0;class#MainController2#0" />
-            <element signature="method#sendFileButtonAction#0;class#MainController2#0" />
-            <element signature="method#downloadFileAction#0;class#MainController2#0" />
-            <element signature="method#deleteFileButtonAction#0;class#MainController2#0" />
-            <element signature="method#signUpAction#0;class#MainController2#0" />
-            <element signature="method#signInAction#0;class#MainController2#0" />
-            <element signature="method#saveSettingsAction#0;class#MainController2#0" />
-            <element signature="method#initialize#0;class#MainController2#0" />
-            <element signature="method#showAlert#0;class#MainController2#0" />
-            <element signature="method#saveFileFromServer#0;class#MainController2#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebBoxServer/src/main/java/ClientHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2380">
+        <state relative-caret-position="2312">
           <caret line="140" column="40" selection-start-line="140" selection-start-column="40" selection-end-line="140" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -545,17 +550,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/sql/PreparedStatement.java">
+    <entry file="file://$PROJECT_DIR$/Common/src/main/java/PacketsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="76" column="14" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
+        <state relative-caret-position="595">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/WebBoxClient/src/main/java/MainController2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="3298">
+          <caret line="194" column="37" lean-forward="true" selection-start-line="194" selection-start-column="37" selection-end-line="194" selection-end-column="37" />
+          <folding>
+            <element signature="method#setAuthorized#0;class#MainController2#0" />
+            <element signature="method#fillGUIfields#0;class#MainController2#0" />
+            <element signature="method#refreshFileListButtonAction#0;class#MainController2#0" />
+            <element signature="method#sendFileButtonAction#0;class#MainController2#0" />
+            <element signature="method#downloadFileAction#0;class#MainController2#0" />
+            <element signature="method#deleteFileButtonAction#0;class#MainController2#0" />
+            <element signature="method#signUpAction#0;class#MainController2#0" />
+            <element signature="method#saveSettingsAction#0;class#MainController2#0" />
+            <element signature="method#showAlert#0;class#MainController2#0" />
+            <element signature="method#saveFileFromServer#0;class#MainController2#0" />
+            <element signature="method#connect#0;class#MainController2#0" />
+            <element signature="method#parsePacket#0;class#MainController2#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -596,13 +615,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebBoxClient/src/main/java/SettingsWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/WebBoxClient/src/main/java/SettingsWindow.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/xerial/sqlite-jdbc/3.21.0.1/sqlite-jdbc-3.21.0.1.jar!/org/sqlite/core/CoreStatement.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -750,20 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebBoxClient/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebBoxServer/src/main/java/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Common/src/main/java/Packet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
@@ -789,38 +788,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Common/src/main/java/PacketsController.java">
+    <entry file="file://$PROJECT_DIR$/WebBoxClient/src/main/java/SettingsWindowController.java" />
+    <entry file="file://$PROJECT_DIR$/WebBoxClient/src/main/java/MainController.java" />
+    <entry file="file://$PROJECT_DIR$/Common/src/main/java/ActionCommands.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebBoxClient/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebBoxClient/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+        <state relative-caret-position="306">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebBoxClient/src/main/java/SettingsWindowController.java">
+    <entry file="file://$PROJECT_DIR$/WebBoxClient/src/main/resources/fxml/boxstyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-end-line="17" selection-end-column="29" />
+        <state relative-caret-position="68">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebBoxClient/src/main/java/MainController.java">
+    <entry file="file://$PROJECT_DIR$/WebBoxServer/src/main/java/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="144" column="67" selection-start-line="144" selection-start-column="67" selection-end-line="144" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Common/src/main/java/ActionCommands.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="289">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -834,22 +835,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Common/src/main/java/PacketsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WebBoxClient/src/main/java/MainController2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="113" column="9" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
+        <state relative-caret-position="533">
+          <caret line="194" column="37" selection-start-line="194" selection-start-column="37" selection-end-line="194" selection-end-column="37" />
           <folding>
+            <element signature="method#setAuthorized#0;class#MainController2#0" />
             <element signature="method#fillGUIfields#0;class#MainController2#0" />
             <element signature="method#refreshFileListButtonAction#0;class#MainController2#0" />
             <element signature="method#sendFileButtonAction#0;class#MainController2#0" />
             <element signature="method#downloadFileAction#0;class#MainController2#0" />
             <element signature="method#deleteFileButtonAction#0;class#MainController2#0" />
             <element signature="method#signUpAction#0;class#MainController2#0" />
-            <element signature="method#signInAction#0;class#MainController2#0" />
             <element signature="method#saveSettingsAction#0;class#MainController2#0" />
-            <element signature="method#initialize#0;class#MainController2#0" />
             <element signature="method#showAlert#0;class#MainController2#0" />
             <element signature="method#saveFileFromServer#0;class#MainController2#0" />
+            <element signature="method#connect#0;class#MainController2#0" />
+            <element signature="method#parsePacket#0;class#MainController2#0" />
           </folding>
         </state>
       </provider>

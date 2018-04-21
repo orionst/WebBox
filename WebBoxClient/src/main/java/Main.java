@@ -17,7 +17,8 @@ public class Main extends Application {
         Parent root = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
         stage.setTitle("WebBox Sync Client");
         stage.setResizable(false);
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
         stage.show();
     }
 }

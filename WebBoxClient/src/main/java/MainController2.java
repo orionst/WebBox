@@ -67,12 +67,18 @@ public class MainController2 implements Initializable {
         saveSettingsButton.setDisable(authorized);
         autoLogon.setDisable(authorized);
 
-        if (authorized) {
-            buttonSignIn.setText("Отключиться");
-            buttonSignIn.setDisable(false);
-        } else {
-            buttonSignIn.setText("Авторизация");
-        }
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                if (authorized) {
+                    buttonSignIn.setText("Отключиться");
+                    buttonSignIn.setDisable(false);
+                } else {
+                    buttonSignIn.setText("Авторизация");
+                    fileList.clear();
+                }
+            }
+        });
     }
 
     private void fillGUIfields(Settings settings) {
@@ -186,6 +192,9 @@ public class MainController2 implements Initializable {
 
         socket = new Socket();
         connect();
+        if (settings.isAutoLogon()) {
+            new Packet.PacketBuilder().setActionCommand(ActionCommands.AUTH_USER).setLogin(loginField.getText()).setPassword(passField.getText()).createPacket().sendPacket(outStream);
+        }
     }
 
     private void showAlert(String msg){
@@ -292,7 +301,6 @@ public class MainController2 implements Initializable {
                 System.out.println("Входящий неизвестный пакет: "+packet.toString());
                 break;
         }
-
     }
 
 }
