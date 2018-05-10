@@ -1,4 +1,5 @@
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,7 +22,7 @@ public class FileCommander {
     public List getUsersFileList(int userId) throws IOException {
         File dir = new File(rootDirPath, Integer.toString(userId));
         if (!dir.exists())
-            throw new IOException("no_user_dir");
+            createUserDir(userId);
         if (!dir.canRead())
             throw new IOException("no_readable_dir");
         return new ArrayList<String>(Arrays.asList(dir.list()));
@@ -30,7 +31,7 @@ public class FileCommander {
     public void saveFileToUsersDir(int userId, File file) throws IOException {
         File dir = new File(rootDirPath, Integer.toString(userId));
         if (!dir.exists())
-            throw new IOException("no_user_dir");
+            createUserDir(userId);
         if (!dir.canWrite())
             throw new IOException("no_writable_dir");
 
@@ -41,7 +42,7 @@ public class FileCommander {
     public void deleteUsersFile(int userId, String file_name) throws IOException {
         File dir = new File(rootDirPath, Integer.toString(userId));
         if (!dir.exists())
-            throw new IOException("no_user_dir");
+            createUserDir(userId);
         if (!dir.canWrite())
             throw new IOException("no_writable_dir");
 
@@ -62,7 +63,7 @@ public class FileCommander {
     public File getUserFile(int userId, String file_name) throws IOException {
         File dir = new File(rootDirPath, Integer.toString(userId));
         if (!dir.exists())
-            throw new IOException("no_user_dir");
+            createUserDir(userId);
         if (!dir.canRead())
             throw new IOException("no_writable_dir");
 

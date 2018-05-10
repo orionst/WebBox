@@ -22,7 +22,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-public class MainController2 implements Initializable {
+public class MainController implements Initializable {
 
     @FXML TextField serverNameField;
     @FXML TextField serverPortField;

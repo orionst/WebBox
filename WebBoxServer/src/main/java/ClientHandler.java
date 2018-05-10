@@ -1,7 +1,9 @@
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.Collection;
-import java.util.List;
+import java.net.SocketException;
 import java.util.Map;
 
 public class ClientHandler {
@@ -23,14 +25,11 @@ public class ClientHandler {
 
             new Thread(() -> {
                 try {
-//                    while (true) {
-//                        //никуда дальше не идем пока не пройдена аутентификация
-//                        if (parseAuthPacket((Packet) inStream.readObject()))
-//                            break;
-//                    }
                     while (true) {
                         parseIncomingPacket((Packet) inStream.readObject());
-                     }
+                    }
+                } catch (SocketException e) {
+                    System.out.println("Клиент разорвал связь");
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
                 } finally {
@@ -46,42 +45,6 @@ public class ClientHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private boolean parseAuthPacket(Packet packet) throws IOException{
-        System.out.println("Получено: " + packet.toString());
-        boolean authOk = false;
-        switch (packet.getAction()) {
-            case NEW_USER:
-                userId = server.dbService.getUserIdByLogin(packet.getUserName());
-                if (userId != null) {
-                    this.server.packetCntrlr.createAuthResultPacket(false).sendPacket(outStream);
-                    System.out.println("Ошибка регистрации нового пользователя. Такой пользователь уже зарегистрирован на сервере.");
-                } else {
-                    //регистрируем и сразу авторизуем
-                    userId = server.dbService.regNewUser(packet.getUserName(), packet.getPassword());
-                    server.fileCommander.createUserDir(userId);
-                    server.packetCntrlr.createAuthResultPacket(false).sendPacket(outStream);
-                    authOk = true;
-                }
-                break;
-            case AUTH_USER:
-                userId = server.dbService.getUserIdByLoginAndPass(packet.getUserName(), packet.getPassword());
-                if (userId != null) {
-                    //авторизуем
-                    server.packetCntrlr.createAuthResultPacket(true).sendPacket(outStream);
-                    server.packetCntrlr.createFileListPacket(server.fileCommander.getUsersFileList(userId)).sendPacket(outStream);
-                    authOk = true;
-                } else {
-                    this.server.packetCntrlr.createAuthResultPacket(false).sendPacket(outStream);
-                    System.out.println("Ошибка авторизации пользователя. Запись о таком пользователе отсутствует на сервере.");
-                }
-                break;
-            default:
-                System.out.println("Входящий пакет не предназначен для авторизации: " + packet.toString());
-                break;
-        }
-        return authOk;
     }
 
     private void parseIncomingPacket(Packet packet) throws IOException {
