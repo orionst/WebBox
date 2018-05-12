@@ -10,9 +10,9 @@ public class Server {
     PacketsController packetCntrlr;
 
     public Server() {
-        fileCommander = new FileCommander(ROOT_DIR_PATH);
-        packetCntrlr = new PacketsController();
         try {
+            fileCommander = new FileCommander(ROOT_DIR_PATH);
+            packetCntrlr = new PacketsController();
             ServerSocket serverSocket = new ServerSocket(8189);
             dbService = new DBConnector();
             dbService.connect();

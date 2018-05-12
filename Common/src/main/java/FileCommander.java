@@ -8,8 +8,19 @@ import java.util.List;
 public class FileCommander {
     private String rootDirPath;
 
-    public FileCommander(String dir) {
+    public FileCommander(String dir){
         this.rootDirPath = dir;
+        try {
+            createDir(dir);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void createDir(String dirPath) throws IOException{
+        Path dir = Paths.get(dirPath);
+        if (!Files.exists(dir))
+            Files.createDirectory(dir);
     }
 
     public File createUserDir(int userId) {
