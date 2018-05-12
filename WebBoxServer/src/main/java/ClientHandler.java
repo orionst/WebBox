@@ -55,13 +55,13 @@ public class ClientHandler {
                 if (isAuthorized) break;
                 userId = server.dbService.getUserIdByLogin(packet.getUserName());
                 if (userId != null) {
-                    this.server.packetCntrlr.createAuthResultPacket(false).sendPacket(outStream);
+                    this.server.packetCntrlr.createAuthResultPacket(ActionCommands.NEW_USER, false).sendPacket(outStream);
                     System.out.println("Ошибка регистрации нового пользователя. Такой пользователь уже зарегистрирован на сервере.");
                 } else {
                     //регистрируем и сразу авторизуем
                     userId = server.dbService.regNewUser(packet.getUserName(), packet.getPassword());
                     server.fileCommander.createUserDir(userId);
-                    server.packetCntrlr.createAuthResultPacket(false).sendPacket(outStream);
+                    server.packetCntrlr.createAuthResultPacket(ActionCommands.NEW_USER, false).sendPacket(outStream);
                     isAuthorized = true;
                 }
                 break;
@@ -70,17 +70,17 @@ public class ClientHandler {
                 userId = server.dbService.getUserIdByLoginAndPass(packet.getUserName(), packet.getPassword());
                 if (userId != null) {
                     //авторизуем
-                    server.packetCntrlr.createAuthResultPacket(true).sendPacket(outStream);
+                    server.packetCntrlr.createAuthResultPacket(ActionCommands.AUTH_USER,true).sendPacket(outStream);
                     server.packetCntrlr.createFileListPacket(server.fileCommander.getUsersFileList(userId)).sendPacket(outStream);
                     isAuthorized = true;
                 } else {
-                    this.server.packetCntrlr.createAuthResultPacket(false).sendPacket(outStream);
+                    this.server.packetCntrlr.createAuthResultPacket(ActionCommands.AUTH_USER,false).sendPacket(outStream);
                     System.out.println("Ошибка авторизации пользователя. Запись о таком пользователе отсутствует на сервере.");
                 }
                 break;
             case AUTH_OFF_USER:
                 if (!isAuthorized) break;
-                server.packetCntrlr.createAuthResultPacket(true).sendPacket(outStream);
+                server.packetCntrlr.createAuthResultPacket(ActionCommands.AUTH_OFF_USER,true).sendPacket(outStream);
                 isAuthorized = false;
                 System.out.println("Клиент отключился");
             case SEND_FILE:

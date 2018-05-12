@@ -30,9 +30,9 @@ public class PacketsController {
     }
 
     //Создает пакет ответа на попытку авторизации/регистрации
-    public Packet createAuthResultPacket(boolean result) {
+    public Packet createAuthResultPacket(ActionCommands action, boolean result) {
         Packet.PacketBuilder packetBuilder = new Packet.PacketBuilder();
-        return packetBuilder.setActionCommand(ActionCommands.ANSW).setResult(result).createPacket();
+        return packetBuilder.setActionCommand(ActionCommands.ANSW).setResult(action, result).createPacket();
     }
 
 

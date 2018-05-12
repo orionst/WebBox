@@ -1,4 +1,7 @@
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,18 +11,25 @@ public class Packet implements Serializable {
     private String userName;        //логин пользователя
     private String password;        //пароль пользователя
     private Map<String, File> data; //массив пар Название файла(ключ) - Объект файла(значение)
-    private boolean result;         //результат отработки команды (при необходимости)
 
-    private Packet(ActionCommands action, String userName, String password, Map<String, File> data, boolean result) {
+    private boolean result;         //результат отработки команды (при необходимости)
+    private ActionCommands resultAction;    //отработанная команда (при необходимости)
+
+    private Packet(ActionCommands action, String userName, String password, Map<String, File> data, ActionCommands resultAction, boolean result) {
         this.action = action;
         this.userName = userName;
         this.password = password;
         this.data = data;
         this.result = result;
+        this.resultAction = resultAction;
     }
 
     public ActionCommands getAction() {
         return action;
+    }
+
+    public ActionCommands getResultAction() {
+        return resultAction;
     }
 
     public String getUserName() {
@@ -73,6 +83,7 @@ public class Packet implements Serializable {
         private String password;
         private Map<String, File> data;
         private boolean result;
+        private ActionCommands resultAction;
 
         public PacketBuilder() {
             this.data = new HashMap<String, File>();
@@ -89,8 +100,9 @@ public class Packet implements Serializable {
             this.password = password;
             return this;
         }
-        public PacketBuilder setResult(boolean result) {
+        public PacketBuilder setResult(ActionCommands action, boolean result) {
             this.result = result;
+            this.resultAction = action;
             return this;
         }
         public PacketBuilder addFile(File file) {
@@ -102,7 +114,7 @@ public class Packet implements Serializable {
             return this;
         }
         public Packet createPacket(){
-            return new Packet(action, userName, password, data, result);
+            return new Packet(action, userName, password, data, resultAction, result);
         }
     }
 

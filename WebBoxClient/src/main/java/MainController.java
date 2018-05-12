@@ -24,6 +24,7 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
+    @FXML TabPane mainform;
     @FXML TextField serverNameField;
     @FXML TextField serverPortField;
     @FXML Button refreshFileListButton;
@@ -86,6 +87,7 @@ public class MainController implements Initializable {
         serverPortField.setText(Short.toString(settings.getServerPort()));
         loginField.setText(settings.getUserName());
         passField.setText(settings.getUserPassword());
+        autoLogon.setSelected(settings.isAutoLogon());
     }
 
     @FXML
@@ -128,18 +130,26 @@ public class MainController implements Initializable {
 
     @FXML
     private void signUpAction(ActionEvent actionEvent) {
-        Packet packet = new Packet.PacketBuilder().setActionCommand(ActionCommands.NEW_USER).setLogin(loginField.getText()).setPassword(passField.getText()).createPacket();
-        packet.sendPacket(outStream);
+        if (!socket.isConnected())
+            connect();
+        if (socket.isConnected()) {
+            Packet packet = new Packet.PacketBuilder().setActionCommand(ActionCommands.NEW_USER).setLogin(loginField.getText()).setPassword(passField.getText()).createPacket();
+            packet.sendPacket(outStream);
+        }
     }
 
     @FXML
     private void signInAction(ActionEvent actionEvent) {
-        Packet packet = null;
-        if (!isAuthorized)
-            packet = new Packet.PacketBuilder().setActionCommand(ActionCommands.AUTH_USER).setLogin(loginField.getText()).setPassword(passField.getText()).createPacket();
-        else
-            packet = new Packet.PacketBuilder().setActionCommand(ActionCommands.AUTH_OFF_USER).setLogin(loginField.getText()).createPacket();
-        packet.sendPacket(outStream);
+        if (!socket.isConnected())
+            connect();
+        if (socket.isConnected()) {
+            Packet packet = null;
+            if (!isAuthorized) {
+                packet = new Packet.PacketBuilder().setActionCommand(ActionCommands.AUTH_USER).setLogin(loginField.getText()).setPassword(passField.getText()).createPacket();
+            } else
+                packet = new Packet.PacketBuilder().setActionCommand(ActionCommands.AUTH_OFF_USER).setLogin(loginField.getText()).createPacket();
+            packet.sendPacket(outStream);
+        }
     }
 
     @FXML
@@ -191,10 +201,14 @@ public class MainController implements Initializable {
         });
 
         socket = new Socket();
-        connect();
         if (settings.isAutoLogon()) {
-            new Packet.PacketBuilder().setActionCommand(ActionCommands.AUTH_USER).setLogin(loginField.getText()).setPassword(passField.getText()).createPacket().sendPacket(outStream);
+            connect();
+            if (socket.isConnected()) {
+                new Packet.PacketBuilder().setActionCommand(ActionCommands.AUTH_USER).setLogin(loginField.getText()).setPassword(passField.getText()).createPacket().sendPacket(outStream);
+            }
         }
+        if (!socket.isConnected()) mainform.getSelectionModel().select(1);
+
     }
 
     private void showAlert(String msg){
@@ -271,7 +285,7 @@ public class MainController implements Initializable {
             t.start();
 
         } catch (IOException e) {
-            showAlert("Не удалось подключиться к серверу. Проверьте сетевое соединение.");
+            showAlert("Не удалось подключиться к серверу. Возможно сервер не запущен или нарушено сетевое соединение.");
         }
     }
 
@@ -279,10 +293,25 @@ public class MainController implements Initializable {
         Map<String, File> mapFiles = packet.getData();
         switch (packet.getAction()) {
             case ANSW:
-                if (packet.isOk()) {
-                    setAuthorized(false);
-                } else {
-                    showAlert("Ошибка отключения от сервера.");
+                ActionCommands reaction = packet.getResultAction();
+                if (reaction == ActionCommands.AUTH_OFF_USER) {
+                    if (packet.isOk()) {
+                        setAuthorized(false);
+                    } else {
+                        showAlert("Ошибка отключения от сервера.");
+                    }
+                } else if (reaction == ActionCommands.AUTH_USER){
+                    if (packet.isOk()) {
+                        setAuthorized(true);
+                    } else {
+                        showAlert("Ошибка авторизации на сервере.");
+                    }
+                } else if (reaction == ActionCommands.NEW_USER){
+                    if (packet.isOk()) {
+                        setAuthorized(true);
+                    } else {
+                        showAlert("Ошибка регистрации. Возможно, такой пользователь уже существует.");
+                    }
                 }
                 break;
             case SEND_FILE:

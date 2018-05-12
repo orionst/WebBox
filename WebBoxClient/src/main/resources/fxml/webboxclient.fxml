@@ -4,9 +4,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<TabPane stylesheets="@/fxml/boxstyle.css" prefHeight="400.0" prefWidth="500.0" side="TOP" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.162" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+<TabPane fx:id="mainform" prefHeight="400.0" prefWidth="500.0" side="TOP" stylesheets="@/fxml/boxstyle.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
    <tabs>
-      <Tab closable="false" text="Файлы" >
+      <Tab id="mainTab" closable="false" text="Файлы">
         <content>
           <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -50,7 +50,7 @@
                </children></VBox>
         </content>
       </Tab>
-      <Tab closable="false" text="Настройки">
+      <Tab id="settingsTab" closable="false" text="Настройки">
          <content>
             <GridPane>
               <columnConstraints>
