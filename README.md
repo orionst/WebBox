@@ -13,3 +13,7 @@
 <li>Скачивание файлов с сервера
 <li>Удаление файлов на сервере
 </ul>
+
+<br>
+<p align="center"><img src="images/screen1.png" width="400" alt="Desktop" />  &nbsp&nbsp
+<img src="images/screen2.png" width="400" alt="Desktop Settings" /></p>
